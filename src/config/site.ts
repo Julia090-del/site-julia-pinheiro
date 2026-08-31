@@ -7,8 +7,7 @@ export const siteConfig = {
   role: "Nutricionista",
   crn: "CRN 1: 28621",
   location: "Goiânia - GO",
-  // TODO: trocar pelo domínio próprio assim que for registrado (ex: https://juliapinheironutri.com.br)
-  url: "https://site-julia-pinheiro.vercel.app",
+  url: "https://juliapinheironutri.com.br",
 
   // Telefone em formato internacional (usado no link do WhatsApp) e formatado (exibição)
   whatsappNumber: "5562996006949",
