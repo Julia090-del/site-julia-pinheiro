@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Container } from "./Container";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
@@ -50,57 +49,38 @@ export function Method() {
       />
 
       <Container className="relative">
-        <div className="grid gap-y-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-x-16">
-          <Reveal className="relative mx-auto flex w-full max-w-[300px] justify-center lg:mx-0 lg:max-w-none lg:justify-start lg:self-stretch">
-            <div
-              className="pointer-events-none absolute inset-0 -z-10 mx-auto h-[85%] w-[85%] self-center rounded-full bg-taupe/15 blur-3xl"
-              aria-hidden
-            />
-            <Image
-              src="/images/julia-preto-sentada-cutout.png"
-              alt="Júlia Pinheiro, criadora do Método eStrat+"
-              width={1000}
-              height={1500}
-              sizes="(max-width: 1024px) 65vw, 30vw"
-              className="relative h-auto w-full max-w-[300px] object-contain drop-shadow-[0_35px_50px_rgba(8,18,13,0.5)] lg:max-w-[400px] lg:translate-y-6"
-            />
-          </Reveal>
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <Eyebrow tone="cream" className="justify-center text-taupe-soft">
+            Método próprio
+          </Eyebrow>
+          <h2 className="mt-5 font-serif text-4xl text-cream sm:text-5xl">
+            eStrat+
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-cream-soft/90 sm:text-lg">
+            Uma metodologia criada por Júlia Pinheiro para ir além de dietas
+            prontas — transformando objetivo, rotina, preferências e
+            necessidades individuais em uma estratégia nutricional sob
+            medida.
+          </p>
+        </Reveal>
 
-          <div>
-            <Reveal>
-              <Eyebrow tone="cream" className="text-taupe-soft">
-                Método próprio
-              </Eyebrow>
-              <h2 className="mt-5 font-serif text-4xl text-cream sm:text-5xl">
-                eStrat+
-              </h2>
-              <p className="mt-6 max-w-lg text-base leading-relaxed text-cream-soft/90 sm:text-lg">
-                Uma metodologia criada por Júlia Pinheiro para ir além de
-                dietas prontas — transformando objetivo, rotina, preferências
-                e necessidades individuais em uma estratégia nutricional sob
-                medida.
+        <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {PILLARS.map((pillar, i) => (
+            <Reveal key={pillar.title} delay={i * 80}>
+              <span className="font-serif text-lg text-wine-soft">
+                {pillar.n}
+              </span>
+              <h3 className="mt-3 font-serif text-xl text-cream">
+                {pillar.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-cream-soft/80">
+                {pillar.text}
               </p>
             </Reveal>
-
-            <div className="mt-12 grid max-w-lg gap-x-8 gap-y-10 sm:grid-cols-2">
-              {PILLARS.map((pillar, i) => (
-                <Reveal key={pillar.title} delay={i * 80}>
-                  <span className="font-serif text-lg text-wine-soft">
-                    {pillar.n}
-                  </span>
-                  <h3 className="mt-3 font-serif text-xl text-cream">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-cream-soft/80">
-                    {pillar.text}
-                  </p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
 
-        <Reveal className="mt-20 border-t border-cream/15 pt-14 text-center lg:mt-24">
+        <Reveal className="mt-20 border-t border-cream/15 pt-14 text-center">
           <p className="font-serif text-xl italic text-cream sm:text-2xl">
             Um olhar integrado sobre o seu corpo
           </p>
