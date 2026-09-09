@@ -8,10 +8,10 @@ import { getWhatsappLink } from "@/config/site";
 
 const NAV_LINKS = [
   { href: "#inicio", label: "Início" },
-  { href: "#metodo", label: "eStrat+" },
+  { href: "#sobre", label: "Sobre mim" },
   { href: "#acompanhamento", label: "Acompanhamento" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#duvidas", label: "Dúvidas" },
+  { href: "#depoimentos", label: "Depoimentos" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function Header() {
@@ -82,7 +82,7 @@ export function Header() {
           rel="noopener noreferrer"
           className="focus-ring hidden rounded-full bg-green px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-green-deep lg:inline-flex"
         >
-          Agendar acompanhamento
+          Agendar consulta
         </a>
 
         <button
@@ -136,7 +136,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             className="focus-ring mt-4 rounded-full bg-green px-7 py-3 text-sm font-semibold text-cream"
           >
-            Agendar acompanhamento
+            Agendar consulta
           </a>
         </nav>
       </div>

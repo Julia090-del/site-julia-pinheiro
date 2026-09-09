@@ -5,7 +5,7 @@ import { getWhatsappLink } from "@/config/site";
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-wine-deep py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-wine-deep py-16 sm:py-32">
       <Image
         src="/images/logo-jp.png"
         alt=""
@@ -18,15 +18,15 @@ export function FinalCTA() {
       <Container className="relative max-w-2xl text-center">
         <Reveal>
           <h2 className="font-serif text-3xl leading-tight text-cream sm:text-4xl lg:text-[2.6rem]">
-            Você não precisa de mais uma dieta.
+            Sua alimentação não precisa ser perfeita.
             <br />
             <span className="italic text-taupe-soft">
-              Precisa de uma estratégia feita para você.
+              Ela precisa fazer sentido para você.
             </span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-cream-soft/85">
-            Conheça o Método eStrat+ e comece um acompanhamento construído em
-            torno da sua rotina, dos seus objetivos e da sua saúde.
+            Vamos construir juntos uma estratégia que combine com seus
+            objetivos, sua rotina e a vida que você quer viver.
           </p>
           <a
             href={getWhatsappLink("agendar")}
@@ -34,7 +34,7 @@ export function FinalCTA() {
             rel="noopener noreferrer"
             className="focus-ring mt-9 inline-flex items-center justify-center rounded-full bg-cream px-8 py-4 text-sm font-semibold text-wine-deep shadow-sm transition-all hover:-translate-y-0.5 hover:bg-taupe-soft"
           >
-            Quero começar meu acompanhamento
+            Agendar minha consulta
           </a>
         </Reveal>
       </Container>

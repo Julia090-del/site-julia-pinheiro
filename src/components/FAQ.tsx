@@ -9,36 +9,20 @@ import { getWhatsappLink } from "@/config/site";
 
 const FAQ_ITEMS = [
   {
-    q: "Como funciona a primeira consulta?",
-    a: "Na primeira consulta, com duração aproximada de 1h30, conversamos sobre sua rotina, alimentação, preferências, objetivos e histórico de saúde para construir a estratégia inicial.",
+    q: "A consulta é presencial ou online?",
+    a: "Presencial em Goiânia ou online — você escolhe o formato que fizer mais sentido para a sua rotina.",
   },
   {
-    q: "Quanto tempo dura a consulta?",
-    a: "Aproximadamente 1h30 — o tempo necessário para entender seu contexto com profundidade, sem pressa.",
+    q: "Como funciona a avaliação da composição corporal?",
+    a: "Fazemos uma avaliação da sua composição corporal como parte do acompanhamento, usada como referência para ajustar a estratégia ao longo do tempo.",
   },
   {
-    q: "O acompanhamento é apenas para emagrecimento?",
-    a: "Não. O Método eStrat+ trabalha de forma integrada temas como emagrecimento, hipertrofia, saúde intestinal, energia, sono e saúde feminina, conforme a necessidade de cada pessoa.",
+    q: "Preciso levar exames?",
+    a: "Se você já tiver exames recentes, é interessante trazê-los — eles ajudam a personalizar ainda mais a estratégia. Não é obrigatório para começar.",
   },
   {
-    q: "Você atende online?",
-    a: "Sim. O acompanhamento acontece presencialmente em Goiânia ou online, com a mesma estrutura de suporte e materiais.",
-  },
-  {
-    q: "Com que frequência acontecem as consultas?",
-    a: "As consultas de retorno acontecem mensalmente, com suporte contínuo entre um encontro e outro.",
-  },
-  {
-    q: "Vou receber um plano alimentar?",
-    a: "Sim, um plano alimentar individualizado, construído a partir da sua estratégia e ajustado ao longo do acompanhamento.",
-  },
-  {
-    q: "Existe suporte entre as consultas?",
-    a: "Sim, o suporte acontece pelo WhatsApp e por uma plataforma de acompanhamento.",
-  },
-  {
-    q: "Qual acompanhamento devo escolher: mensal, trimestral ou semestral?",
-    a: "Isso depende do seu objetivo e do seu momento atual. Fale com a Júlia pelo WhatsApp para entender juntas qual formato faz mais sentido para você.",
+    q: "Como funciona o acompanhamento entre as consultas?",
+    a: "Você tem suporte pelo WhatsApp e por uma plataforma de acompanhamento, para tirar dúvidas e ajustar a estratégia quando necessário.",
   },
 ];
 
@@ -85,7 +69,7 @@ function FaqRow({ q, a }: { q: string; a: string }) {
 
 export function FAQ() {
   return (
-    <section id="duvidas" className="bg-cream-soft py-24 sm:py-28">
+    <section id="faq" className="bg-cream-soft py-14 sm:py-24">
       <Container className="max-w-3xl">
         <Reveal className="text-center">
           <Eyebrow className="justify-center">Dúvidas frequentes</Eyebrow>

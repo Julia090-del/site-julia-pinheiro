@@ -17,6 +17,10 @@ export const siteConfig = {
   instagramUrl: "https://instagram.com/juliapinheiro_nutri",
 
   email: "juliacunhapinheiro@gmail.com",
+
+  // TODO: trocar pelo link direto do perfil do Google Business assim que estiver disponível.
+  googleReviewsUrl:
+    "https://www.google.com/search?q=J%C3%BAlia+Pinheiro+Nutricionista+Goi%C3%A2nia+avalia%C3%A7%C3%B5es",
 } as const;
 
 type WhatsappTopic = "geral" | "mensal" | "trimestral" | "semestral" | "metodo" | "agendar";

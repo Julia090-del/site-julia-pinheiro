@@ -25,30 +25,25 @@ export function Hero() {
           <h1 className="mt-5 font-serif text-[2.4rem] leading-[1.08] text-green sm:text-[2.9rem] lg:text-[3.4rem]">
             Nutrição eStratégica para resultados que cabem na sua vida.
           </h1>
-          <p className="mt-6 text-base leading-relaxed text-ink-soft sm:text-lg">
-            Acompanhamento nutricional individualizado para emagrecimento,
-            hipertrofia, saúde intestinal, saúde feminina e qualidade de vida —
-            construído a partir da sua rotina, não do contrário.
+          <p className="mt-5 text-sm font-semibold uppercase tracking-[0.14em] text-wine">
+            Emagrecimento • Estética • Saúde • Performance
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-ink-soft sm:text-lg">
+            Um acompanhamento individualizado, pensado para sua rotina, seus
+            objetivos e sua evolução.
           </p>
           <p className="mt-4 text-sm font-medium tracking-wide text-ink-soft">
             Atendimento presencial em Goiânia · Atendimento online
           </p>
 
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8">
             <a
               href={getWhatsappLink("agendar")}
               target="_blank"
               rel="noopener noreferrer"
               className="focus-ring inline-flex items-center justify-center rounded-full bg-wine px-7 py-3.5 text-sm font-semibold text-cream shadow-sm transition-all hover:-translate-y-0.5 hover:bg-wine-deep hover:shadow-md"
             >
-              Quero começar meu acompanhamento
-            </a>
-            <a
-              href="#metodo"
-              className="focus-ring inline-flex items-center justify-center gap-2 text-sm font-semibold text-green transition-colors hover:text-wine"
-            >
-              Conheça o eStrat+
-              <span aria-hidden>→</span>
+              Agendar consulta
             </a>
           </div>
         </div>

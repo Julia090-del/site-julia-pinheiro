@@ -36,7 +36,7 @@ const PLANS = [
 
 export function Plans() {
   return (
-    <section id="acompanhamento" className="bg-cream py-24 sm:py-28">
+    <section id="acompanhamento" className="bg-cream py-14 sm:py-24">
       <Container>
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow className="justify-center">Modalidades</Eyebrow>
@@ -50,9 +50,13 @@ export function Plans() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8">
+        <div className="-mx-6 mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 [scrollbar-width:none] sm:mx-0 sm:px-0 lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:hidden">
           {PLANS.map((plan, i) => (
-            <Reveal key={plan.id} delay={i * 90}>
+            <Reveal
+              key={plan.id}
+              delay={i * 90}
+              className="w-[82vw] shrink-0 snap-center sm:w-[360px] lg:w-auto"
+            >
               <div
                 className={cn(
                   "flex h-full flex-col rounded-3xl border p-8 transition-shadow",
@@ -94,7 +98,7 @@ export function Plans() {
                       : "bg-green/10 text-green hover:bg-green hover:text-cream"
                   )}
                 >
-                  Quero saber mais
+                  Agendar consulta
                 </a>
               </div>
             </Reveal>

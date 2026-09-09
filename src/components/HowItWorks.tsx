@@ -1,60 +1,82 @@
 import { Container } from "./Container";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
+import { getWhatsappLink } from "@/config/site";
 
 const STEPS = [
   {
     n: "01",
-    title: "Entender você",
-    text: "Consulta completa de aproximadamente 1h30 para compreender rotina, alimentação, preferências, objetivos e necessidades.",
+    title: "Avaliação",
+    text: "Conhecemos sua rotina, hábitos, objetivos e composição corporal.",
   },
   {
     n: "02",
-    title: "Criar sua estratégia",
-    text: "Construção de um plano alimentar individualizado e de uma estratégia compatível com a sua vida real.",
+    title: "Estratégia",
+    text: "Definimos as estratégias mais adequadas para você.",
   },
   {
     n: "03",
-    title: "Acompanhar",
-    text: "Suporte pelo WhatsApp e por plataforma de acompanhamento ao longo de todo o processo.",
+    title: "Plano personalizado",
+    text: "Um planejamento feito de acordo com sua rotina e preferências.",
   },
   {
     n: "04",
-    title: "Ajustar e evoluir",
-    text: "Encontros mensais para observar a evolução e realizar os ajustes necessários na estratégia.",
+    title: "Acompanhamento",
+    text: "A evolução é acompanhada e a estratégia é ajustada quando necessário.",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="bg-cream-soft py-24 sm:py-28">
+    <section id="como-funciona" className="bg-cream-soft py-14 sm:py-24">
       <Container>
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow className="justify-center">Como funciona</Eyebrow>
           <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
-            O acompanhamento, passo a passo
+            Um plano pensado para você.
           </h2>
+          <p className="mt-4 text-sm leading-relaxed text-ink-soft sm:text-base">
+            Cada acompanhamento começa entendendo onde você está e para onde
+            quer chegar.
+          </p>
         </Reveal>
 
-        <div className="relative mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="relative mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div
-            className="absolute top-6 hidden h-px w-full bg-green/15 lg:block"
+            className="absolute top-5 hidden h-px w-full bg-green/15 lg:block"
             aria-hidden
           />
           {STEPS.map((step, i) => (
-            <Reveal key={step.n} delay={i * 90} className="relative">
-              <span className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full bg-cream-soft font-serif text-lg text-green ring-1 ring-green/20">
+            <Reveal
+              key={step.n}
+              delay={i * 80}
+              className="relative flex items-start gap-4 lg:block lg:gap-0"
+            >
+              <span className="relative z-10 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cream-soft font-serif text-base text-green ring-1 ring-green/20">
                 {step.n}
               </span>
-              <h3 className="mt-5 font-serif text-xl text-green">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                {step.text}
-              </p>
+              <div className="lg:mt-4">
+                <h3 className="font-serif text-lg text-green">
+                  {step.title}
+                </h3>
+                <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                  {step.text}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={320} className="mt-10 text-center">
+          <a
+            href={getWhatsappLink("agendar")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring inline-flex items-center justify-center rounded-full bg-green px-7 py-3.5 text-sm font-semibold text-cream transition-all hover:-translate-y-0.5 hover:bg-green-deep"
+          >
+            Quero começar
+          </a>
+        </Reveal>
       </Container>
     </section>
   );
