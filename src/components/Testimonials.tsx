@@ -54,26 +54,26 @@ export function Testimonials() {
 
         <Reveal
           delay={80}
-          className="-mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] sm:mx-0 sm:justify-center sm:px-0 [&::-webkit-scrollbar]:hidden"
+          className="mt-8 flex snap-x snap-mandatory items-start gap-3 overflow-x-auto px-[7%] pb-2 [scrollbar-width:none] sm:gap-6 sm:px-[calc((100%-420px)/2)] [&::-webkit-scrollbar]:hidden"
         >
           {TESTIMONIALS.map((t) => (
             <div
               key={t.src}
-              className="w-[82vw] shrink-0 snap-center overflow-hidden rounded-2xl border border-ink/10 shadow-[0_20px_45px_-30px_rgba(28,34,29,0.3)] sm:w-[360px]"
+              className="w-[95%] shrink-0 snap-center rounded-2xl bg-cream-soft p-2.5 shadow-[0_16px_40px_-24px_rgba(28,34,29,0.35)] sm:w-[420px] sm:p-3"
             >
               <Image
                 src={t.src}
                 alt={t.alt}
                 width={t.width}
                 height={t.height}
-                sizes="(max-width: 640px) 82vw, 360px"
-                className="h-auto w-full object-contain"
+                sizes="(max-width: 640px) 85vw, 420px"
+                className="h-auto w-full rounded-lg object-contain"
               />
             </div>
           ))}
         </Reveal>
 
-        <Reveal delay={140} className="mt-10 text-center">
+        <Reveal delay={140} className="mt-6 text-center">
           <p className="text-sm text-ink-soft">
             Quer conhecer mais experiências?
           </p>
