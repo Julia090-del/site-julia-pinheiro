@@ -21,9 +21,21 @@ export const siteConfig = {
   // TODO: trocar pelo link direto do perfil do Google Business assim que estiver disponível.
   googleReviewsUrl:
     "https://www.google.com/search?q=J%C3%BAlia+Pinheiro+Nutricionista+Goi%C3%A2nia+avalia%C3%A7%C3%B5es",
+
+  // Endpoint do Formspree que recebe as respostas do formulário de pré-consulta
+  // e envia por e-mail. Configurado via variável de ambiente na Vercel — veja
+  // PreConsultForm.tsx para instruções de configuração.
+  formspreeEndpoint: process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "",
 } as const;
 
-type WhatsappTopic = "geral" | "mensal" | "trimestral" | "semestral" | "metodo" | "agendar";
+type WhatsappTopic =
+  | "geral"
+  | "mensal"
+  | "trimestral"
+  | "semestral"
+  | "metodo"
+  | "agendar"
+  | "preconsulta";
 
 const whatsappMessages: Record<WhatsappTopic, string> = {
   geral:
@@ -38,6 +50,8 @@ const whatsappMessages: Record<WhatsappTopic, string> = {
     "Olá, Júlia! Vi o Método eStrat+ no seu site e gostaria de entender melhor como funciona o acompanhamento.",
   agendar:
     "Olá, Júlia! Gostaria de agendar meu acompanhamento nutricional. Pode me passar mais informações?",
+  preconsulta:
+    "Olá, Júlia! Acabei de preencher o formulário de pré-consulta no site.",
 };
 
 export function getWhatsappLink(topic: WhatsappTopic = "geral") {

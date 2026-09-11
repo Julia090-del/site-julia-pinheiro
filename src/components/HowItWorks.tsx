@@ -1,7 +1,6 @@
 import { Container } from "./Container";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
-import { getWhatsappLink } from "@/config/site";
 
 const STEPS = [
   {
@@ -69,9 +68,7 @@ export function HowItWorks() {
 
         <Reveal delay={320} className="mt-10 text-center">
           <a
-            href={getWhatsappLink("agendar")}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#pre-consulta"
             className="focus-ring inline-flex items-center justify-center rounded-full bg-green px-7 py-3.5 text-sm font-semibold text-cream transition-all hover:-translate-y-0.5 hover:bg-green-deep"
           >
             Quero começar

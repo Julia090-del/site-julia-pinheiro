@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "#inicio", label: "Início" },
   { href: "#sobre", label: "Sobre mim" },
   { href: "#acompanhamento", label: "Acompanhamento" },
+  { href: "#pre-consulta", label: "Pré-consulta" },
   { href: "#depoimentos", label: "Depoimentos" },
   { href: "#faq", label: "FAQ" },
 ];

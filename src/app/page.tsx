@@ -4,6 +4,7 @@ import { About } from "@/components/About";
 import { WhoIsItFor } from "@/components/WhoIsItFor";
 import { Method } from "@/components/Method";
 import { HowItWorks } from "@/components/HowItWorks";
+import { PreConsultForm } from "@/components/PreConsultForm";
 import { MethodIncludes } from "@/components/MethodIncludes";
 import { Testimonials } from "@/components/Testimonials";
 import { Plans } from "@/components/Plans";
@@ -22,6 +23,7 @@ export default function Home() {
         <WhoIsItFor />
         <Method />
         <HowItWorks />
+        <PreConsultForm />
         <MethodIncludes />
         {/* Depoimentos aparece automaticamente quando os prints reais forem adicionados */}
         <Testimonials />
