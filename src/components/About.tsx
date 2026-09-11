@@ -11,7 +11,7 @@ export function About() {
   return (
     <section id="sobre" className="bg-cream-soft py-14 sm:py-24 lg:py-28">
       <Container className="grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-        <Reveal className="relative mx-auto w-full max-w-[210px] sm:max-w-xs lg:max-w-none">
+        <Reveal className="relative mx-auto hidden w-full max-w-xs lg:block lg:max-w-none">
           <div
             className="absolute inset-x-6 bottom-0 top-10 rounded-[2.5rem] bg-green/10"
             aria-hidden
@@ -21,12 +21,20 @@ export function About() {
             alt={`${siteConfig.fullName}, nutricionista`}
             width={900}
             height={1350}
-            sizes="(max-width: 1024px) 50vw, 32vw"
-            className="relative z-10 mx-auto h-auto w-full max-w-[210px] object-contain sm:max-w-[320px]"
+            sizes="32vw"
+            className="relative z-10 mx-auto h-auto w-full max-w-[320px] object-contain"
           />
         </Reveal>
 
         <Reveal delay={100}>
+          <Image
+            src="/images/julia-blazer-preto-cutout.png"
+            alt={`${siteConfig.fullName}, nutricionista`}
+            width={900}
+            height={1350}
+            sizes="120px"
+            className="mb-6 h-auto w-[120px] object-contain lg:hidden"
+          />
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-wine">
             Sobre
             <span className="h-px w-6 bg-current" aria-hidden />

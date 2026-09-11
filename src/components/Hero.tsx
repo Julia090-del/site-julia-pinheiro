@@ -48,7 +48,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-[420px] justify-center lg:max-w-none">
+        <div className="relative mx-auto flex w-full max-w-[260px] justify-center sm:max-w-[350px] lg:max-w-none">
           <div
             className="absolute bottom-0 right-1/2 h-[88%] w-[78%] translate-x-1/2 rounded-t-[220px] bg-gradient-to-b from-green-soft/25 via-taupe-soft to-taupe-soft lg:w-[85%]"
             aria-hidden
@@ -59,8 +59,8 @@ export function Hero() {
             width={1000}
             height={1500}
             priority
-            sizes="(max-width: 1024px) 80vw, 40vw"
-            className="relative z-10 h-auto w-full max-w-[380px] object-contain drop-shadow-[0_30px_40px_rgba(28,34,29,0.18)] lg:max-w-[440px]"
+            sizes="(max-width: 640px) 55vw, (max-width: 1024px) 45vw, 40vw"
+            className="relative z-10 h-auto w-full max-w-[235px] object-contain drop-shadow-[0_30px_40px_rgba(28,34,29,0.18)] sm:max-w-[320px] lg:max-w-[440px]"
           />
         </div>
       </Container>
