@@ -48,15 +48,27 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative -mx-6 flex w-[calc(100%+3rem)] justify-center sm:mx-auto sm:w-full sm:max-w-[350px] lg:max-w-none">
+        {/* Mobile: recorte mais fechado e ampliado, ocupando a largura toda, sem sobra embaixo */}
+        <div className="relative -mx-6 aspect-[3/4] w-[calc(100%+3rem)] overflow-hidden sm:hidden">
+          <Image
+            src="/images/julia-blazer-preto-cutout.png"
+            alt="Júlia Pinheiro, nutricionista"
+            fill
+            priority
+            sizes="100vw"
+            className="origin-top scale-125 object-cover object-top drop-shadow-[0_30px_40px_rgba(28,34,29,0.18)]"
+          />
+        </div>
+
+        {/* Tablet/desktop: enquadramento original, foto inteira */}
+        <div className="relative mx-auto hidden w-full justify-center sm:flex sm:max-w-[350px] lg:max-w-none">
           <Image
             src="/images/julia-blazer-preto-cutout.png"
             alt="Júlia Pinheiro, nutricionista"
             width={900}
             height={1350}
-            priority
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 40vw"
-            className="relative z-10 h-auto w-full object-contain drop-shadow-[0_30px_40px_rgba(28,34,29,0.18)] sm:max-w-[320px] lg:max-w-[440px]"
+            sizes="(max-width: 1024px) 45vw, 40vw"
+            className="relative z-10 h-auto w-full max-w-[320px] object-contain drop-shadow-[0_30px_40px_rgba(28,34,29,0.18)] lg:max-w-[440px]"
           />
         </div>
       </Container>
