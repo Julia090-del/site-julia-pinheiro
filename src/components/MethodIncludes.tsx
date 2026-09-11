@@ -16,7 +16,7 @@ export function MethodIncludes() {
     <section className="bg-cream py-10 sm:py-20">
       <Container className="max-w-2xl">
         <Reveal className="text-center">
-          <h2 className="font-serif text-2xl text-green sm:text-3xl">
+          <h2 className="font-serif text-2xl font-semibold text-green sm:text-3xl">
             Mais do que um plano alimentar.
           </h2>
         </Reveal>

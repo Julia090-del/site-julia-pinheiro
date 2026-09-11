@@ -60,7 +60,7 @@ export function Header() {
             className="h-9 w-auto"
             priority
           />
-          <span className="font-serif text-[1.05rem] leading-none tracking-wide text-green">
+          <span className="font-serif text-[1.05rem] font-semibold leading-none tracking-wide text-green">
             Júlia Pinheiro
           </span>
         </Link>

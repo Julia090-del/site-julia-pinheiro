@@ -31,7 +31,7 @@ export function About() {
             Sobre
             <span className="h-px w-6 bg-current" aria-hidden />
           </span>
-          <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
+          <h2 className="mt-5 font-serif text-3xl font-semibold text-green sm:text-4xl">
             Prazer, eu sou a Júlia.
           </h2>
           <p className="mt-1 text-sm font-medium tracking-wide text-wine">

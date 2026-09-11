@@ -40,7 +40,7 @@ export function Plans() {
       <Container>
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow className="justify-center">Modalidades</Eyebrow>
-          <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
+          <h2 className="mt-5 font-serif text-3xl font-semibold text-green sm:text-4xl">
             Acompanhamento nutricional
           </h2>
           <p className="mt-5 text-base leading-relaxed text-ink-soft">
@@ -70,7 +70,7 @@ export function Plans() {
                     Opção intermediária
                   </span>
                 )}
-                <h3 className="font-serif text-2xl text-green">{plan.name}</h3>
+                <h3 className="font-serif text-2xl font-semibold text-green">{plan.name}</h3>
                 <p className="mt-1 text-sm font-medium text-wine">
                   {plan.caption}
                 </p>

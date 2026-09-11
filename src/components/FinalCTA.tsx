@@ -17,7 +17,7 @@ export function FinalCTA() {
 
       <Container className="relative max-w-2xl text-center">
         <Reveal>
-          <h2 className="font-serif text-3xl leading-tight text-cream sm:text-4xl lg:text-[2.6rem]">
+          <h2 className="font-serif text-3xl font-semibold leading-tight text-cream sm:text-4xl lg:text-[2.6rem]">
             Sua alimentação não precisa ser perfeita.
             <br />
             <span className="italic text-taupe-soft">

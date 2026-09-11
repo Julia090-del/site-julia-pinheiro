@@ -22,7 +22,7 @@ export function Hero() {
           <p className="font-serif text-sm italic tracking-wide text-wine">
             Júlia Pinheiro · Nutricionista · CRN 1: 28621
           </p>
-          <h1 className="mt-5 font-serif text-[2.4rem] leading-[1.08] text-green sm:text-[2.9rem] lg:text-[3.4rem]">
+          <h1 className="mt-5 font-serif text-[2.4rem] font-semibold leading-[1.08] text-green sm:text-[2.9rem] lg:text-[3.4rem]">
             Nutrição eStratégica para resultados que cabem na sua vida.
           </h1>
           <p className="mt-5 text-sm font-semibold uppercase tracking-[0.14em] text-wine">

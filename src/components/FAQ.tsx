@@ -73,7 +73,7 @@ export function FAQ() {
       <Container className="max-w-3xl">
         <Reveal className="text-center">
           <Eyebrow className="justify-center">Dúvidas frequentes</Eyebrow>
-          <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
+          <h2 className="mt-5 font-serif text-3xl font-semibold text-green sm:text-4xl">
             Perguntas que costumam aparecer
           </h2>
         </Reveal>

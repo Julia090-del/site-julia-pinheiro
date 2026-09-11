@@ -31,7 +31,7 @@ export function HowItWorks() {
       <Container>
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow className="justify-center">Como funciona</Eyebrow>
-          <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
+          <h2 className="mt-5 font-serif text-3xl font-semibold text-green sm:text-4xl">
             Um método pensado para você.
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-ink-soft sm:text-base">
@@ -55,7 +55,7 @@ export function HowItWorks() {
                 {step.n}
               </span>
               <div className="lg:mt-4">
-                <h3 className="font-serif text-lg text-green">
+                <h3 className="font-serif text-lg font-semibold text-green">
                   {step.title}
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-ink-soft">

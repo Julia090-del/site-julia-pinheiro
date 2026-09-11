@@ -43,7 +43,7 @@ export function Testimonials() {
       <Container>
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow className="justify-center">Depoimentos</Eyebrow>
-          <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
+          <h2 className="mt-5 font-serif text-3xl font-semibold text-green sm:text-4xl">
             Resultados que vão além da balança
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-ink-soft sm:text-base">

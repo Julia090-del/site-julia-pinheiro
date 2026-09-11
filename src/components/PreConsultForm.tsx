@@ -54,7 +54,7 @@ export function PreConsultForm() {
       <section id="pre-consulta" className="bg-cream py-14 sm:py-24">
         <Container className="max-w-xl">
           <div className="rounded-3xl border border-green/15 bg-cream-soft p-8 text-center sm:p-12">
-            <h2 className="font-serif text-2xl text-green sm:text-3xl">
+            <h2 className="font-serif text-2xl font-semibold text-green sm:text-3xl">
               Recebido!
             </h2>
             <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft sm:text-base">
@@ -80,7 +80,7 @@ export function PreConsultForm() {
       <Container className="max-w-xl">
         <Reveal className="text-center">
           <Eyebrow className="justify-center">Pré-consulta</Eyebrow>
-          <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
+          <h2 className="mt-5 font-serif text-3xl font-semibold text-green sm:text-4xl">
             Vamos começar?
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-ink-soft sm:text-base">

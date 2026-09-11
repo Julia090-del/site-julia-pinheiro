@@ -19,7 +19,7 @@ export function Method() {
           <Eyebrow tone="cream" className="justify-center text-taupe-soft">
             O método
           </Eyebrow>
-          <h2 className="mt-5 font-serif text-4xl text-cream sm:text-5xl">
+          <h2 className="mt-5 font-serif text-4xl font-semibold text-cream sm:text-5xl">
             Método eStrat+
           </h2>
           <p className="mt-4 font-serif text-xl italic text-taupe-soft sm:text-2xl">

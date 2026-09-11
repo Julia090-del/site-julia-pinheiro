@@ -27,7 +27,7 @@ export function WhoIsItFor() {
       <Container>
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow className="justify-center">Para quem é</Eyebrow>
-          <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
+          <h2 className="mt-5 font-serif text-3xl font-semibold text-green sm:text-4xl">
             Seu objetivo é o ponto de partida.
           </h2>
         </Reveal>
@@ -39,7 +39,7 @@ export function WhoIsItFor() {
               delay={i * 70}
               className="rounded-2xl bg-cream-soft p-5 sm:p-6"
             >
-              <h3 className="font-serif text-base leading-snug text-green sm:text-lg">
+              <h3 className="font-serif text-base font-semibold leading-snug text-green sm:text-lg">
                 {item.title}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-ink-soft sm:text-sm">
