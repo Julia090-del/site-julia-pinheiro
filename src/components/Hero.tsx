@@ -49,15 +49,11 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto flex w-full max-w-[260px] justify-center sm:max-w-[350px] lg:max-w-none">
-          <div
-            className="absolute bottom-0 right-1/2 h-[88%] w-[78%] translate-x-1/2 rounded-t-[220px] bg-gradient-to-b from-green-soft/25 via-taupe-soft to-taupe-soft lg:w-[85%]"
-            aria-hidden
-          />
           <Image
-            src="/images/julia-vinho-cutout.png"
+            src="/images/julia-blazer-preto-cutout.png"
             alt="Júlia Pinheiro, nutricionista"
-            width={1000}
-            height={1500}
+            width={900}
+            height={1350}
             priority
             sizes="(max-width: 640px) 55vw, (max-width: 1024px) 45vw, 40vw"
             className="relative z-10 h-auto w-full max-w-[235px] object-contain drop-shadow-[0_30px_40px_rgba(28,34,29,0.18)] sm:max-w-[320px] lg:max-w-[440px]"
