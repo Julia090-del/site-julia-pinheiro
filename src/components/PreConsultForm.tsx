@@ -53,7 +53,7 @@ export function PreConsultForm() {
     return (
       <section id="pre-consulta" className="bg-cream py-14 sm:py-24">
         <Container className="max-w-xl">
-          <Reveal className="rounded-3xl border border-green/15 bg-cream-soft p-8 text-center sm:p-12">
+          <div className="rounded-3xl border border-green/15 bg-cream-soft p-8 text-center sm:p-12">
             <h2 className="font-serif text-2xl text-green sm:text-3xl">
               Recebido!
             </h2>
@@ -69,7 +69,7 @@ export function PreConsultForm() {
             >
               Falar no WhatsApp agora
             </a>
-          </Reveal>
+          </div>
         </Container>
       </section>
     );
