@@ -17,13 +17,16 @@ export function Method() {
       <Container className="relative">
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow tone="cream" className="justify-center text-taupe-soft">
-            eStrat+
+            O método
           </Eyebrow>
-          <h2 className="mt-5 font-serif text-3xl italic text-cream sm:text-4xl">
-            Minha forma de conduzir o acompanhamento nutricional.
+          <h2 className="mt-5 font-serif text-4xl text-cream sm:text-5xl">
+            Método eStrat+
           </h2>
+          <p className="mt-4 font-serif text-xl italic text-taupe-soft sm:text-2xl">
+            Minha forma de conduzir o acompanhamento nutricional.
+          </p>
           <p className="mt-6 text-base leading-relaxed text-cream-soft/90 sm:text-lg">
-            Uma abordagem baseada em estratégia, individualidade e
+            Uma abordagem baseada em eStratégia, individualidade e
             acompanhamento contínuo. Mais do que entregar um plano alimentar,
             meu objetivo é construir uma eStratégia que você consiga aplicar
             na sua rotina e ajustar ao longo do processo.

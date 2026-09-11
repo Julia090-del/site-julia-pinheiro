@@ -10,8 +10,8 @@ const STEPS = [
   },
   {
     n: "02",
-    title: "Estratégia",
-    text: "Definimos as estratégias mais adequadas para você.",
+    title: "eStratégia",
+    text: "Definimos as eStratégias mais adequadas para você.",
   },
   {
     n: "03",
@@ -21,7 +21,7 @@ const STEPS = [
   {
     n: "04",
     title: "Acompanhamento",
-    text: "A evolução é acompanhada e a estratégia é ajustada quando necessário.",
+    text: "A evolução é acompanhada e a eStratégia é ajustada quando necessário.",
   },
 ];
 
@@ -32,7 +32,7 @@ export function HowItWorks() {
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow className="justify-center">Como funciona</Eyebrow>
           <h2 className="mt-5 font-serif text-3xl text-green sm:text-4xl">
-            Um plano pensado para você.
+            Um método pensado para você.
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-ink-soft sm:text-base">
             Cada acompanhamento começa entendendo onde você está e para onde

@@ -5,7 +5,7 @@ import { Eyebrow } from "./Eyebrow";
 const ITEMS = [
   {
     title: "Emagrecimento",
-    text: "Estratégias para redução de gordura corporal de forma individualizada e sustentável.",
+    text: "eStratégias para redução de gordura corporal de forma individualizada e sustentável.",
   },
   {
     title: "Estética e composição corporal",
@@ -13,7 +13,7 @@ const ITEMS = [
   },
   {
     title: "Performance e hipertrofia",
-    text: "Estratégias para desempenho, recuperação e ganho de massa muscular.",
+    text: "eStratégias para desempenho, recuperação e ganho de massa muscular.",
   },
   {
     title: "Saúde e qualidade de vida",

@@ -5,7 +5,7 @@ const ITEMS = [
   "Avaliação nutricional individualizada",
   "Avaliação da composição corporal",
   "Plano alimentar personalizado",
-  "Estratégias para sua rotina",
+  "eStratégias para sua rotina",
   "Materiais de apoio",
   "Acompanhamento da evolução",
   "Ajustes conforme suas necessidades",
