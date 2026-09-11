@@ -27,14 +27,6 @@ export function About() {
         </Reveal>
 
         <Reveal delay={100}>
-          <Image
-            src="/images/julia-blazer-preto-cutout.png"
-            alt={`${siteConfig.fullName}, nutricionista`}
-            width={900}
-            height={1350}
-            sizes="120px"
-            className="mb-6 h-auto w-[120px] object-contain lg:hidden"
-          />
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-wine">
             Sobre
             <span className="h-px w-6 bg-current" aria-hidden />

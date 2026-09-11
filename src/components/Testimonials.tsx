@@ -16,12 +16,6 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    src: "/images/testimonials/gabriel-borges.jpg",
-    alt: "Avaliação de Gabriel Borges Campos no Google: Excelente profissional!!! Muito atenciosa e dedicada. Recomendo muito!",
-    width: 1054,
-    height: 343,
-  },
-  {
     src: "/images/testimonials/hilda-martins.jpg",
     alt: "Avaliação de Hilda Martins no Google: Excelente profissional! Julia pinheiro é super atenciosa, explica tudo com muita clareza e montou um plano alimentar que se encaixa de verdade na minha rotina.",
     width: 1067,
@@ -32,6 +26,12 @@ const TESTIMONIALS: Testimonial[] = [
     alt: "Avaliação de Luciana Saporetti no Google: Atendimento excelente! Dieta alinhada ao dia a dia, preferências alimentares para que consiga manter uma reeducação alimentar saudável.",
     width: 1062,
     height: 480,
+  },
+  {
+    src: "/images/testimonials/gabriel-borges.jpg",
+    alt: "Avaliação de Gabriel Borges Campos no Google: Excelente profissional!!! Muito atenciosa e dedicada. Recomendo muito!",
+    width: 1054,
+    height: 343,
   },
 ];
 
