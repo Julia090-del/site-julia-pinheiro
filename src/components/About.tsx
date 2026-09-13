@@ -48,7 +48,7 @@ export function About() {
             individualizada, sem transformar a alimentação em um peso.
           </p>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            No consultório, uno avaliação, estratégia e acompanhamento para
+            No consultório, junto avaliação, estratégia e acompanhamento para
             que você saiba não apenas o que fazer, mas como tornar isso
             possível na sua rotina.
           </p>
