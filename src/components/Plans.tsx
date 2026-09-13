@@ -10,7 +10,7 @@ const PLANS = [
     name: "Mensal",
     caption: "Para começar com encontros frequentes",
     description:
-      "Indicado para quem está iniciando o acompanhamento e quer construir a eStratégia com proximidade e ajustes recorrentes.",
+      "Indicado para quem está iniciando o acompanhamento e quer construir a estratégia com proximidade e ajustes recorrentes.",
     items: ["Consulta mensal", "Plano alimentar individualizado", "Suporte contínuo pelo WhatsApp"],
     highlighted: false,
   },
@@ -19,7 +19,7 @@ const PLANS = [
     name: "Trimestral",
     caption: "Equilíbrio entre consistência e evolução",
     description:
-      "Um intervalo pensado para observar a evolução da eStratégia com mais consistência e menos interrupções.",
+      "Um intervalo pensado para observar a evolução da estratégia com mais consistência e menos interrupções.",
     items: ["Acompanhamento de 3 meses", "Ajustes ao longo do trimestre", "Suporte contínuo pelo WhatsApp"],
     highlighted: true,
   },
@@ -29,7 +29,7 @@ const PLANS = [
     caption: "Para consolidar resultados no longo prazo",
     description:
       "Indicado para quem busca continuidade e a consolidação de hábitos e resultados ao longo de um período mais longo.",
-    items: ["Acompanhamento de 6 meses", "eStratégia de longo prazo", "Suporte contínuo pelo WhatsApp"],
+    items: ["Acompanhamento de 6 meses", "Estratégia de longo prazo", "Suporte contínuo pelo WhatsApp"],
     highlighted: false,
   },
 ];

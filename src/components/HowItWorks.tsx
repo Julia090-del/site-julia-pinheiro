@@ -10,8 +10,8 @@ const STEPS = [
   },
   {
     n: "02",
-    title: "eStratégia",
-    text: "Definimos as eStratégias mais adequadas para você.",
+    title: "Estratégia",
+    text: "Definimos as estratégias mais adequadas para você.",
   },
   {
     n: "03",
@@ -21,7 +21,7 @@ const STEPS = [
   {
     n: "04",
     title: "Acompanhamento",
-    text: "A evolução é acompanhada e a eStratégia é ajustada quando necessário.",
+    text: "A evolução é acompanhada e a estratégia é ajustada quando necessário.",
   },
 ];
 

@@ -25,7 +25,7 @@ export function FinalCTA() {
             </span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-cream-soft/85">
-            Vamos construir juntos uma eStratégia que combine com seus
+            Vamos construir juntos uma estratégia que combine com seus
             objetivos, sua rotina e a vida que você quer viver.
           </p>
           <a

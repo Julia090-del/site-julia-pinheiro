@@ -44,11 +44,11 @@ export function About() {
           </p>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
             Meu trabalho é entender sua rotina, seus objetivos e suas
-            necessidades para construir uma eStratégia nutricional
+            necessidades para construir uma estratégia nutricional
             individualizada, sem transformar a alimentação em um peso.
           </p>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            No consultório, uno avaliação, eStratégia e acompanhamento para
+            No consultório, uno avaliação, estratégia e acompanhamento para
             que você saiba não apenas o que fazer, mas como tornar isso
             possível na sua rotina.
           </p>

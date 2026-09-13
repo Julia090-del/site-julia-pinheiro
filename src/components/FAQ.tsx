@@ -14,15 +14,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "Como funciona a avaliação da composição corporal?",
-    a: "Fazemos uma avaliação da sua composição corporal como parte do acompanhamento, usada como referência para ajustar a eStratégia ao longo do tempo.",
+    a: "Fazemos uma avaliação da sua composição corporal como parte do acompanhamento, usada como referência para ajustar a estratégia ao longo do tempo.",
   },
   {
     q: "Preciso levar exames?",
-    a: "Se você já tiver exames recentes, é interessante trazê-los — eles ajudam a personalizar ainda mais a eStratégia. Não é obrigatório para começar.",
+    a: "Se você já tiver exames recentes, é interessante trazê-los — eles ajudam a personalizar ainda mais a estratégia. Não é obrigatório para começar.",
   },
   {
     q: "Como funciona o acompanhamento entre as consultas?",
-    a: "Você tem suporte pelo WhatsApp e por uma plataforma de acompanhamento, para tirar dúvidas e ajustar a eStratégia quando necessário.",
+    a: "Você tem suporte pelo WhatsApp e por uma plataforma de acompanhamento, para tirar dúvidas e ajustar a estratégia quando necessário.",
   },
 ];
 

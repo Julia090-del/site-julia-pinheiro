@@ -26,9 +26,9 @@ export function Method() {
             Minha forma de conduzir o acompanhamento nutricional.
           </p>
           <p className="mt-6 text-base leading-relaxed text-cream-soft/90 sm:text-lg">
-            Uma abordagem baseada em eStratégia, individualidade e
+            Uma abordagem baseada em estratégia, individualidade e
             acompanhamento contínuo. Mais do que entregar um plano alimentar,
-            meu objetivo é construir uma eStratégia que você consiga aplicar
+            meu objetivo é construir uma estratégia que você consiga aplicar
             na sua rotina e ajustar ao longo do processo.
           </p>
         </Reveal>
