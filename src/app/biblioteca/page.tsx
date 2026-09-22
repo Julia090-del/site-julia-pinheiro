@@ -10,7 +10,7 @@ export default async function BibliotecaHomePage() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
-      <h1 className="mb-2 font-serif text-3xl text-green">Bem-vinda à sua biblioteca.</h1>
+      <h1 className="mb-2 font-serif text-3xl text-green">Bem-vinda à sua Área eStrat+.</h1>
       <p className="mb-8 text-ink-soft">
         Guias práticos preparados pela Júlia para facilitar suas escolhas no dia a dia.
       </p>

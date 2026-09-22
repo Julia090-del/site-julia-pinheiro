@@ -24,7 +24,7 @@ export default async function BibliotecaLayout({ children }: { children: React.R
         <header className="sticky top-0 z-40 border-b border-black/10 bg-cream/90 backdrop-blur">
           <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
             <Link href="/biblioteca" className="font-serif text-lg text-green">
-              Biblioteca de nutrição
+              Área eStrat+
             </Link>
             <nav className="flex items-center gap-4 text-sm font-semibold text-ink-soft">
               {role === 'admin' && (

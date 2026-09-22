@@ -29,8 +29,8 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-cream px-4">
       <div className="w-full max-w-sm rounded-2xl border border-black/10 bg-white p-8 shadow-sm">
-        <h1 className="mb-1 font-serif text-2xl text-green">Biblioteca de nutrição</h1>
-        <p className="mb-6 text-sm text-ink-soft">Entre com o acesso que a Júlia te enviou.</p>
+        <h1 className="mb-1 font-serif text-2xl text-green">Área eStrat+</h1>
+        <p className="mb-6 text-sm text-ink-soft">Sua nutrição estratégica, aplicada ao seu dia a dia.</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
