@@ -77,14 +77,22 @@ export function Header() {
           ))}
         </nav>
 
-        <a
-          href={getWhatsappLink("agendar")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="focus-ring hidden rounded-full bg-green px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-green-deep lg:inline-flex"
-        >
-          Agendar consulta
-        </a>
+        <div className="hidden items-center gap-5 lg:flex">
+          <Link
+            href="/biblioteca/login"
+            className="focus-ring text-sm font-medium text-ink-soft transition-colors hover:text-green"
+          >
+            Área do paciente
+          </Link>
+          <a
+            href={getWhatsappLink("agendar")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring inline-flex rounded-full bg-green px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-green-deep"
+          >
+            Agendar consulta
+          </a>
+        </div>
 
         <button
           type="button"
@@ -130,6 +138,13 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          <Link
+            href="/biblioteca/login"
+            onClick={() => setOpen(false)}
+            className="font-serif text-3xl text-green"
+          >
+            Área do paciente
+          </Link>
           <a
             href={getWhatsappLink("agendar")}
             target="_blank"
