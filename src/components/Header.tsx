@@ -94,6 +94,13 @@ export function Header() {
           </a>
         </div>
 
+        <Link
+          href="/biblioteca/login"
+          className="focus-ring rounded-full border border-green/25 px-3.5 py-1.5 text-xs font-semibold text-green lg:hidden"
+        >
+          Entrar
+        </Link>
+
         <button
           type="button"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
