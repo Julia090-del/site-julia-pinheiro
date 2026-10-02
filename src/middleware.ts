@@ -29,8 +29,9 @@ export async function middleware(request: NextRequest) {
 
   const isBibliotecaRoute = request.nextUrl.pathname.startsWith('/biblioteca');
   const isLoginRoute = request.nextUrl.pathname === '/biblioteca/login';
+  const isDefinirSenhaRoute = request.nextUrl.pathname === '/biblioteca/definir-senha';
 
-  if (isBibliotecaRoute && !isLoginRoute && !user) {
+  if (isBibliotecaRoute && !isLoginRoute && !isDefinirSenhaRoute && !user) {
     const url = request.nextUrl.clone();
     url.pathname = '/biblioteca/login';
     return NextResponse.redirect(url);
