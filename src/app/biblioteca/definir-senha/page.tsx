@@ -12,16 +12,19 @@ export default function DefinirSenhaPage() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    console.log('[definir-senha] mount, hash:', window.location.hash.slice(0, 30));
     const supabase = createClient();
     // The recovery/invite link puts the session in the URL hash; the client
     // library picks it up automatically on load and fires this event.
-    const { data: sub } = supabase.auth.onAuthStateChange((event) => {
+    const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('[definir-senha] onAuthStateChange', event, !!session);
       if (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN') {
         setReady(true);
       }
     });
     // In case the event already fired before this listener was attached.
-    supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(({ data, error }) => {
+      console.log('[definir-senha] getSession', !!data.session, error);
       if (data.session) setReady(true);
     });
     return () => sub.subscription.unsubscribe();
