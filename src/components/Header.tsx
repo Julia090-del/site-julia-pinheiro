@@ -96,9 +96,9 @@ export function Header() {
 
         <Link
           href="/biblioteca/login"
-          className="focus-ring rounded-full border border-green/25 px-3.5 py-1.5 text-xs font-semibold text-green lg:hidden"
+          className="focus-ring whitespace-nowrap rounded-full border border-green/25 px-3 py-1.5 text-[11px] font-semibold text-green lg:hidden"
         >
-          Entrar
+          Menu do paciente
         </Link>
 
         <button
