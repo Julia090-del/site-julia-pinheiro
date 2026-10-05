@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import type { AnalysisResult, AnalyzedItem, ManualItemInput } from './types';
 
-const MODEL = 'claude-sonnet-5';
+const MODEL = 'claude-haiku-4-5';
 
 function getClient() {
   const apiKey = process.env.ANTHROPIC_API_KEY;
