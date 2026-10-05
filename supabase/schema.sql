@@ -101,3 +101,14 @@ create policy "products_write_admin" on public.products for all using (public.is
 
 -- favoritos: cada paciente só mexe nos próprios
 create policy "favorites_owner" on public.favorites for all using (auth.uid() = patient_id) with check (auth.uid() = patient_id);
+
+-- uso da Análise de Refeição: um registro por análise, usado para limitar X por semana
+create table public.meal_analysis_usage (
+  id uuid primary key default gen_random_uuid(),
+  patient_id uuid not null references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now()
+);
+alter table public.meal_analysis_usage enable row level security;
+
+create policy "meal_analysis_usage_owner" on public.meal_analysis_usage
+  for all using (auth.uid() = patient_id) with check (auth.uid() = patient_id);
