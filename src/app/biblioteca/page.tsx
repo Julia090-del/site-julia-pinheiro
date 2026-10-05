@@ -27,9 +27,23 @@ export default async function BibliotecaHomePage({
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
       <h1 className="mb-2 font-serif text-3xl text-green">Bem-vinda à sua Área eStrat+.</h1>
-      <p className="mb-8 text-ink-soft">
+      <p className="mb-6 text-ink-soft">
         Guias práticos preparados pela Júlia para facilitar suas escolhas no dia a dia.
       </p>
+
+      <Link
+        href="/biblioteca/analise-alimentar"
+        className="mb-8 flex items-center gap-4 rounded-2xl border border-green/15 bg-green px-5 py-4 text-cream transition hover:bg-green-deep"
+      >
+        <span className="text-2xl">📷</span>
+        <div className="flex-1">
+          <p className="font-serif text-lg">Análise de Refeição</p>
+          <p className="text-sm text-cream/80">
+            Envie uma foto e tenha uma estimativa de calorias e macronutrientes
+          </p>
+        </div>
+        <span className="text-xl">→</span>
+      </Link>
 
       {categories && categories.length > 0 && (
         <div className="mb-8 flex flex-wrap gap-2">

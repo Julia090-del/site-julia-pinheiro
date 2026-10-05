@@ -27,6 +27,9 @@ export default async function BibliotecaLayout({ children }: { children: React.R
               Área eStrat+
             </Link>
             <nav className="flex items-center gap-4 text-sm font-semibold text-ink-soft">
+              <Link href="/biblioteca/analise-alimentar" className="hover:text-green">
+                Análise de Refeição
+              </Link>
               {role === 'admin' && (
                 <Link href="/biblioteca/admin" className="hover:text-green">
                   Admin
