@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import { Icon } from '@/lib/biblioteca/icons';
 
 export default async function BibliotecaHomePage({
   searchParams,
@@ -35,14 +36,14 @@ export default async function BibliotecaHomePage({
         href="/biblioteca/analise-alimentar"
         className="mb-8 flex items-center gap-4 rounded-2xl border border-green/15 bg-green px-5 py-4 text-cream transition hover:bg-green-deep"
       >
-        <span className="text-2xl">📷</span>
+        <Icon name="camera" size={22} />
         <div className="flex-1">
           <p className="font-serif text-lg">Análise de Refeição</p>
           <p className="text-sm text-cream/80">
             Envie uma foto e tenha uma estimativa de calorias e macronutrientes
           </p>
         </div>
-        <span className="text-xl">→</span>
+        <Icon name="arrowRight" size={18} />
       </Link>
 
       {categories && categories.length > 0 && (

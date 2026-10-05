@@ -4,7 +4,19 @@ import { createClient } from '@/lib/supabase/server';
 import { analyzeMeal, recalculateSingleItem } from '@/lib/analise/anthropic';
 import type { AnalysisResult, AnalyzedItem, ManualItemInput } from '@/lib/analise/types';
 
-const WEEKLY_LIMIT = 10;
+type UsageKind = 'analysis_photo' | 'analysis_manual' | 'correction';
+
+const WEEKLY_LIMITS: Record<UsageKind, number> = {
+  analysis_photo: 10,
+  analysis_manual: 30,
+  correction: 30,
+};
+
+const LIMIT_MESSAGES: Record<UsageKind, string> = {
+  analysis_photo: `Você já usou suas ${WEEKLY_LIMITS.analysis_photo} análises por foto desta semana. O limite renova conforme os dias passam — tente novamente em breve.`,
+  analysis_manual: `Você já usou suas ${WEEKLY_LIMITS.analysis_manual} análises por gramas informadas desta semana. O limite renova conforme os dias passam — tente novamente em breve.`,
+  correction: `Você já usou o limite de correções/adições desta semana. Tente novamente em breve.`,
+};
 
 async function requireUser() {
   const supabase = await createClient();
@@ -21,30 +33,69 @@ async function requireUser() {
 async function checkAndRecordUsage(
   supabase: Awaited<ReturnType<typeof createClient>>,
   userId: string,
-  isAdmin: boolean
+  isAdmin: boolean,
+  kind: UsageKind
 ): Promise<{ allowed: true } | { allowed: false; error: string }> {
   if (isAdmin) return { allowed: true };
 
+  const limit = WEEKLY_LIMITS[kind];
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
   const { count, error: countError } = await supabase
     .from('meal_analysis_usage')
     .select('*', { count: 'exact', head: true })
     .eq('patient_id', userId)
+    .eq('kind', kind)
     .gte('created_at', sevenDaysAgo);
 
   if (countError) throw countError;
 
-  if ((count ?? 0) >= WEEKLY_LIMIT) {
-    return {
-      allowed: false,
-      error: `Você já usou suas ${WEEKLY_LIMIT} análises desta semana. O limite renova conforme os dias passam — tente novamente em breve.`,
-    };
+  if ((count ?? 0) >= limit) {
+    return { allowed: false, error: LIMIT_MESSAGES[kind] };
   }
 
-  const { error: insertError } = await supabase.from('meal_analysis_usage').insert({ patient_id: userId });
+  const { error: insertError } = await supabase
+    .from('meal_analysis_usage')
+    .insert({ patient_id: userId, kind });
   if (insertError) throw insertError;
 
   return { allowed: true };
+}
+
+export type UsageStatus = {
+  isAdmin: boolean;
+  analysisPhoto: { used: number; limit: number };
+  analysisManual: { used: number; limit: number };
+  correction: { used: number; limit: number };
+};
+
+export async function getUsageStatusAction(): Promise<UsageStatus> {
+  const { supabase, userId, isAdmin } = await requireUser();
+  const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+
+  async function countFor(kind: UsageKind) {
+    if (isAdmin) return 0;
+    const { count, error } = await supabase
+      .from('meal_analysis_usage')
+      .select('*', { count: 'exact', head: true })
+      .eq('patient_id', userId)
+      .eq('kind', kind)
+      .gte('created_at', sevenDaysAgo);
+    if (error) throw error;
+    return count ?? 0;
+  }
+
+  const [photo, manual, correction] = await Promise.all([
+    countFor('analysis_photo'),
+    countFor('analysis_manual'),
+    countFor('correction'),
+  ]);
+
+  return {
+    isAdmin,
+    analysisPhoto: { used: photo, limit: WEEKLY_LIMITS.analysis_photo },
+    analysisManual: { used: manual, limit: WEEKLY_LIMITS.analysis_manual },
+    correction: { used: correction, limit: WEEKLY_LIMITS.correction },
+  };
 }
 
 export async function analyzeMealAction(formData: FormData): Promise<
@@ -73,7 +124,8 @@ export async function analyzeMealAction(formData: FormData): Promise<
       return { ok: false, error: 'Envie uma foto ou informe pelo menos um alimento.' };
     }
 
-    const usage = await checkAndRecordUsage(supabase, userId, isAdmin);
+    const usageKind: UsageKind = imageBase64 ? 'analysis_photo' : 'analysis_manual';
+    const usage = await checkAndRecordUsage(supabase, userId, isAdmin, usageKind);
     if (!usage.allowed) {
       return { ok: false, error: usage.error };
     }
@@ -92,10 +144,16 @@ export async function recalculateItemAction(input: {
   grams: number;
 }): Promise<{ ok: true; item: AnalyzedItem } | { ok: false; error: string }> {
   try {
-    await requireUser();
+    const { supabase, userId, isAdmin } = await requireUser();
     if (!input.name.trim() || !input.grams || input.grams <= 0) {
       return { ok: false, error: 'Informe o nome do alimento e um peso válido.' };
     }
+
+    const usage = await checkAndRecordUsage(supabase, userId, isAdmin, 'correction');
+    if (!usage.allowed) {
+      return { ok: false, error: usage.error };
+    }
+
     const item = await recalculateSingleItem(input);
     return { ok: true, item };
   } catch (e) {

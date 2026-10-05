@@ -1,13 +1,15 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { analyzeMealAction, recalculateItemAction } from './actions';
+import { useEffect, useRef, useState } from 'react';
+import { analyzeMealAction, recalculateItemAction, getUsageStatusAction } from './actions';
+import type { UsageStatus } from './actions';
 import type { AnalysisResult, AnalyzedItem, ManualItemInput, ConfidenceLevel } from '@/lib/analise/types';
+import { Icon } from '@/lib/biblioteca/icons';
 
 function ConfidenceBadge({ level, label }: { level: ConfidenceLevel; label: string }) {
   const colors: Record<ConfidenceLevel, string> = {
     alta: 'bg-green/10 text-green-deep',
-    media: 'bg-amber-100 text-amber-800',
+    media: 'bg-taupe-soft text-ink-soft',
     baixa: 'bg-wine/10 text-wine',
   };
   return (
@@ -43,6 +45,20 @@ export default function AnaliseAlimentarPage() {
   const [addingItem, setAddingItem] = useState(false);
   const [newItemName, setNewItemName] = useState('');
   const [newItemGrams, setNewItemGrams] = useState('');
+
+  const [usage, setUsage] = useState<UsageStatus | null>(null);
+
+  async function refreshUsage() {
+    try {
+      setUsage(await getUsageStatusAction());
+    } catch {
+      // não crítico — a página funciona normalmente sem o contador
+    }
+  }
+
+  useEffect(() => {
+    refreshUsage();
+  }, []);
 
   function handlePickPhoto(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -90,6 +106,7 @@ export default function AnaliseAlimentarPage() {
       return;
     }
     setResult(res.data);
+    refreshUsage();
   }
 
   function recomputeTotals(items: AnalyzedItem[]) {
@@ -127,6 +144,7 @@ export default function AnaliseAlimentarPage() {
     const newItems = result.items.map((it) => (it.id === editingId ? res.item : it));
     setResult({ ...result, items: newItems, totals: recomputeTotals(newItems) });
     setEditingId(null);
+    refreshUsage();
   }
 
   function removeItem(id: string) {
@@ -154,6 +172,7 @@ export default function AnaliseAlimentarPage() {
     setNewItemName('');
     setNewItemGrams('');
     setAddingItem(false);
+    refreshUsage();
   }
 
   function startOver() {
@@ -168,15 +187,33 @@ export default function AnaliseAlimentarPage() {
     <main className="mx-auto max-w-2xl px-4 py-8">
       <p className="mb-1 font-serif text-sm italic text-wine">Área eStrat+</p>
       <h1 className="mb-2 font-serif text-3xl text-green">Análise de Refeição</h1>
-      <p className="mb-6 max-w-[60ch] text-ink-soft">
+      <p className="mb-4 max-w-[60ch] text-ink-soft">
         Envie uma foto da sua refeição e tenha uma estimativa de calorias e macronutrientes. Uma ferramenta
         educativa para te ajudar a visualizar porções — não substitui a avaliação da Júlia.
       </p>
 
+      {usage && !usage.isAdmin && (
+        <div className="mb-6 flex flex-wrap gap-2 text-xs text-ink-soft">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 py-1.5">
+            <Icon name="camera" size={13} className="text-green-soft" />
+            {Math.max(0, usage.analysisPhoto.limit - usage.analysisPhoto.used)} de {usage.analysisPhoto.limit}{' '}
+            análises por foto restantes essa semana
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 py-1.5">
+            <Icon name="scale" size={13} className="text-green-soft" />
+            {Math.max(0, usage.analysisManual.limit - usage.analysisManual.used)} de{' '}
+            {usage.analysisManual.limit} por gramas informadas restantes essa semana
+          </span>
+        </div>
+      )}
+
       {!result && (
         <div className="flex flex-col gap-6">
           <div className="rounded-2xl border border-black/10 bg-white p-5">
-            <h2 className="mb-3 flex items-center gap-2 font-serif text-lg text-green">📷 Analisar uma foto</h2>
+            <h2 className="mb-3 flex items-center gap-2 font-serif text-lg text-green">
+              <Icon name="camera" size={19} className="text-wine" />
+              Analisar uma foto
+            </h2>
 
             {!photoPreview ? (
               <button
@@ -184,7 +221,7 @@ export default function AnaliseAlimentarPage() {
                 onClick={() => fileInputRef.current?.click()}
                 className="focus-ring flex w-full flex-col items-center gap-2 rounded-xl border border-dashed border-green/30 bg-cream/60 py-10 text-sm font-semibold text-green-deep transition hover:bg-cream"
               >
-                <span className="text-2xl">📷</span>
+                <Icon name="camera" size={26} />
                 Enviar ou tirar uma foto
               </button>
             ) : (
@@ -220,7 +257,10 @@ export default function AnaliseAlimentarPage() {
               onClick={() => setShowManual((v) => !v)}
               className="focus-ring flex w-full items-center justify-between font-serif text-lg text-green"
             >
-              <span>⚖️ Você sabe a quantidade em gramas?</span>
+              <span className="inline-flex items-center gap-2">
+                <Icon name="scale" size={19} className="text-wine" />
+                Você sabe a quantidade em gramas?
+              </span>
               <span className="text-sm text-ink-soft">{showManual ? '−' : '+'}</span>
             </button>
 
@@ -464,18 +504,21 @@ export default function AnaliseAlimentarPage() {
           </div>
 
           {result.uncertainNotes.length > 0 && (
-            <div className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900">
-              <strong>Pontos de atenção:</strong>
-              <ul className="mt-1 list-disc pl-4">
-                {result.uncertainNotes.map((note, i) => (
-                  <li key={i}>{note}</li>
-                ))}
-              </ul>
+            <div className="flex gap-3 rounded-xl border border-wine/15 bg-wine/5 px-5 py-4 text-sm text-wine-deep">
+              <Icon name="alertCircle" size={18} className="mt-0.5 flex-shrink-0 text-wine" />
+              <div>
+                <strong>Pontos de atenção:</strong>
+                <ul className="mt-1 list-disc pl-4">
+                  {result.uncertainNotes.map((note, i) => (
+                    <li key={i}>{note}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           )}
 
           <div className="flex gap-3 rounded-xl border border-green/15 bg-green/5 px-5 py-4 text-sm text-green-deep">
-            <span>ℹ️</span>
+            <Icon name="info" size={18} className="mt-0.5 flex-shrink-0 text-green-soft" />
             <div>{result.disclaimer}</div>
           </div>
 

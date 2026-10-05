@@ -102,10 +102,12 @@ create policy "products_write_admin" on public.products for all using (public.is
 -- favoritos: cada paciente só mexe nos próprios
 create policy "favorites_owner" on public.favorites for all using (auth.uid() = patient_id) with check (auth.uid() = patient_id);
 
--- uso da Análise de Refeição: um registro por análise, usado para limitar X por semana
+-- uso da Análise de Refeição: um registro por análise/correção, usado para limitar X por semana
+-- kind: 'analysis_photo' (envio de foto), 'analysis_manual' (só gramas informadas), 'correction' (adicionar/corrigir item)
 create table public.meal_analysis_usage (
   id uuid primary key default gen_random_uuid(),
   patient_id uuid not null references auth.users(id) on delete cascade,
+  kind text not null default 'analysis_photo' check (kind in ('analysis_photo', 'analysis_manual', 'correction')),
   created_at timestamptz not null default now()
 );
 alter table public.meal_analysis_usage enable row level security;

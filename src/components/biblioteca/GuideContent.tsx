@@ -10,12 +10,10 @@ function SectionTitle({ icon, children }: { icon?: string; children: React.React
   );
 }
 
-function InfoBlock({ icon, title, text }: IconItem) {
+function InfoRow({ icon, title, text }: IconItem) {
   return (
-    <div className="flex gap-4 rounded-2xl border border-black/10 bg-white p-5">
-      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-green/5 text-green">
-        <Icon name={icon || 'checkCircle'} size={21} />
-      </div>
+    <div className="flex gap-4 py-4">
+      <Icon name={icon || 'checkCircle'} size={19} className="mt-0.5 flex-shrink-0 text-wine" />
       <div>
         <h4 className="mb-1 font-sans font-semibold text-ink">{title}</h4>
         <p className="text-sm text-ink-soft">{text}</p>
@@ -59,9 +57,7 @@ export default function GuideContent({ content }: { content: GuideContentType })
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {content.concepts.map((c, i) => (
             <div key={i} className="rounded-2xl border border-black/10 bg-white p-5">
-              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-green/5 text-green">
-                <Icon name={c.icon || 'checkCircle'} size={18} />
-              </div>
+              <Icon name={c.icon || 'checkCircle'} size={19} className="mb-2.5 text-wine" />
               <h4 className="mb-1.5 font-serif text-lg text-green">{c.title}</h4>
               <p className="text-sm text-ink-soft">{c.text}</p>
             </div>
@@ -72,9 +68,9 @@ export default function GuideContent({ content }: { content: GuideContentType })
       {content.labelBlocks && content.labelBlocks.length > 0 && (
         <div>
           <SectionTitle icon="eye">O que observar no rótulo?</SectionTitle>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="flex flex-col divide-y divide-black/10 rounded-2xl border border-black/10 bg-white px-5">
             {content.labelBlocks.map((b, i) => (
-              <InfoBlock key={i} icon="checkCircle" title={b.title} text={b.text} />
+              <InfoRow key={i} icon="checkCircle" title={b.title} text={b.text} />
             ))}
           </div>
         </div>
@@ -102,7 +98,6 @@ export default function GuideContent({ content }: { content: GuideContentType })
             <table className="w-full min-w-[480px] border-collapse text-sm">
               <thead>
                 <tr className="bg-cream-soft">
-                  {table.rowIcon && <th className="w-11" />}
                   <th />
                   {table.columns.map((c, i) => (
                     <th
@@ -117,13 +112,6 @@ export default function GuideContent({ content }: { content: GuideContentType })
               <tbody>
                 {table.rows.map((row, i) => (
                   <tr key={i} className={i === table.pickIndex ? 'bg-wine/5' : ''}>
-                    {table.rowIcon && (
-                      <td className="border-b border-black/10 px-2 py-3">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green/5 text-green">
-                          <Icon name={row.icon || table.rowIcon} size={16} />
-                        </span>
-                      </td>
-                    )}
                     <td className="border-b border-black/10 px-4 py-3 font-serif text-ink">
                       {row.name}
                       {row.brand && <div className="text-xs text-ink-soft/70">{row.brand}</div>}
@@ -158,9 +146,9 @@ export default function GuideContent({ content }: { content: GuideContentType })
           {group.layout === 'method' ? (
             <MethodSteps steps={group.items} />
           ) : (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="flex flex-col divide-y divide-black/10 rounded-2xl border border-black/10 bg-white px-5">
               {group.items.map((b, i) => (
-                <InfoBlock key={i} icon={b.icon || 'checkCircle'} title={b.title} text={b.text} />
+                <InfoRow key={i} icon={b.icon || 'checkCircle'} title={b.title} text={b.text} />
               ))}
             </div>
           )}
