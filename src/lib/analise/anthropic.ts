@@ -94,7 +94,7 @@ function computeTotals(items: AnalyzedItem[]) {
 }
 
 const DISCLAIMER =
-  'Uma ferramenta para ajudar você a se orientar quando estiver fora de casa ou não souber exatamente quanto consumiu. Os valores são estimativas e não substituem uma balança nem a orientação da sua nutricionista. Pequenas diferenças fazem parte da alimentação e não significam que você precise compensar ou alterar seu plano.';
+  'Uma ferramenta para ajudar você a se orientar quando estiver fora de casa ou não souber exatamente quanto consumiu. Os valores são estimativas e não substituem uma balança nem o cálculo de um plano alimentar. Pequenas diferenças fazem parte da alimentação e não significam que você precise compensar ou alterar seu plano.';
 
 export async function analyzeMeal(params: {
   imageBase64?: string;
