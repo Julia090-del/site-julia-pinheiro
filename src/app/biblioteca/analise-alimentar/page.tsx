@@ -187,9 +187,12 @@ export default function AnaliseAlimentarPage() {
     <main className="mx-auto max-w-2xl px-4 py-8">
       <p className="mb-1 font-serif text-sm italic text-wine">Área eStrat+</p>
       <h1 className="mb-2 font-serif text-3xl text-green">Análise de Refeição</h1>
-      <p className="mb-4 max-w-[60ch] text-ink-soft">
-        Envie uma foto da sua refeição e tenha uma estimativa de calorias e macronutrientes. Uma ferramenta
-        educativa para te ajudar a visualizar porções — não substitui a avaliação da Júlia.
+      <p className="mb-1.5 max-w-[60ch] text-ink-soft">
+        Para quando você comeu fora de casa ou não sabe a quantidade — num restaurante, delivery, viagem ou
+        evento. Fotografe a refeição e tenha uma estimativa de calorias e macronutrientes.
+      </p>
+      <p className="mb-4 max-w-[60ch] text-sm text-ink-soft/70">
+        Não é preciso fotografar todas as refeições — use como apoio quando for útil.
       </p>
 
       {usage && !usage.isAdmin && (

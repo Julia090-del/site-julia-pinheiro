@@ -21,6 +21,7 @@ Regras:
 - Use como referência valores de composição de alimentos de bases confiáveis (ex.: TACO para alimentos brasileiros, USDA FoodData Central em geral).
 - Para preparações compostas (ex.: omelete com queijo e tomate), tente identificar os principais componentes visíveis em vez de tratar como um único item genérico, mas não invente ingredientes que não possam ser identificados (óleo usado, molhos escondidos, recheios etc.) — mencione essa limitação em "uncertainNotes" quando relevante.
 - Indique um nível de confiança ("alta", "media" ou "baixa") separadamente para a identificação do alimento e para a estimativa de peso.
+- Nunca sugira, prescreva ou dê a entender que o paciente deve alterar o plano alimentar, compensar, pular ou ajustar próximas refeições com base no que foi estimado. Pequenas diferenças entre a estimativa e o plano são esperadas e não exigem nenhuma ação. Se o campo "notes" ou "uncertainNotes" tocar nesse assunto, limite-se a observar a limitação da estimativa — nunca dê orientação nutricional ou fale em "compensar". Dúvidas sobre o plano devem ser direcionadas à nutricionista, não respondidas por você.
 - Responda APENAS com um JSON válido, sem nenhum texto antes ou depois, seguindo exatamente este formato:
 
 {
@@ -93,7 +94,7 @@ function computeTotals(items: AnalyzedItem[]) {
 }
 
 const DISCLAIMER =
-  'Os valores apresentados são estimativas baseadas na imagem e/ou nos pesos informados, e podem variar conforme a quantidade real, o preparo e os ingredientes utilizados. Esta ferramenta é educativa e não substitui uma avaliação nutricional profissional.';
+  'Uma ferramenta para ajudar você a se orientar quando estiver fora de casa ou não souber exatamente quanto consumiu. Os valores são estimativas e não substituem uma balança nem a orientação da sua nutricionista. Pequenas diferenças fazem parte da alimentação e não significam que você precise compensar ou alterar seu plano.';
 
 export async function analyzeMeal(params: {
   imageBase64?: string;
