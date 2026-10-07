@@ -66,7 +66,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           {category?.name}
           {guide.is_new ? ' · Novo' : ''}
         </p>
-        <h1 className="mb-2 font-serif text-3xl text-green">{guide.title}</h1>
+        <h1 className="mb-2 font-serif text-2xl text-green sm:text-3xl">{guide.title}</h1>
         {guide.subtitle && <p className="mb-6 max-w-[60ch] text-lg text-ink-soft">{guide.subtitle}</p>}
 
         {guide.image && (

@@ -22,6 +22,18 @@ function InfoRow({ icon, title, text }: IconItem) {
   );
 }
 
+function ConceptRow({ icon, title, text }: IconItem) {
+  return (
+    <div className="flex gap-4 py-4">
+      <Icon name={icon || 'checkCircle'} size={19} className="mt-0.5 flex-shrink-0 text-wine" />
+      <div>
+        <h4 className="mb-1 font-serif text-base text-green">{title}</h4>
+        <p className="text-sm text-ink-soft">{text}</p>
+      </div>
+    </div>
+  );
+}
+
 function MethodSteps({ steps }: { steps: MethodStep[] }) {
   return (
     <div className="flex flex-col gap-5 rounded-2xl border border-black/10 bg-white p-5">
@@ -54,15 +66,22 @@ export default function GuideContent({ content }: { content: GuideContentType })
       )}
 
       {content.concepts && content.concepts.length > 0 && (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {content.concepts.map((c, i) => (
-            <div key={i} className="rounded-2xl border border-black/10 bg-white p-5">
-              <Icon name={c.icon || 'checkCircle'} size={19} className="mb-2.5 text-wine" />
-              <h4 className="mb-1.5 font-serif text-lg text-green">{c.title}</h4>
-              <p className="text-sm text-ink-soft">{c.text}</p>
-            </div>
-          ))}
-        </div>
+        <>
+          <div className="flex flex-col divide-y divide-black/10 rounded-2xl border border-black/10 bg-white px-5 sm:hidden">
+            {content.concepts.map((c, i) => (
+              <ConceptRow key={i} icon={c.icon} title={c.title} text={c.text} />
+            ))}
+          </div>
+          <div className="hidden grid-cols-1 gap-4 sm:grid sm:grid-cols-2">
+            {content.concepts.map((c, i) => (
+              <div key={i} className="rounded-2xl border border-black/10 bg-white p-5">
+                <Icon name={c.icon || 'checkCircle'} size={19} className="mb-2.5 text-wine" />
+                <h4 className="mb-1.5 font-serif text-lg text-green">{c.title}</h4>
+                <p className="text-sm text-ink-soft">{c.text}</p>
+              </div>
+            ))}
+          </div>
+        </>
       )}
 
       {content.labelBlocks && content.labelBlocks.length > 0 && (

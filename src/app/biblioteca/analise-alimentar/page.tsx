@@ -186,7 +186,7 @@ export default function AnaliseAlimentarPage() {
   return (
     <main className="mx-auto max-w-2xl px-4 py-8">
       <p className="mb-1 font-serif text-sm italic text-wine">Área eStrat+</p>
-      <h1 className="mb-2 font-serif text-3xl text-green">Análise de Refeição</h1>
+      <h1 className="mb-2 font-serif text-2xl text-green sm:text-3xl">Análise de Refeição</h1>
       <p className="mb-1.5 max-w-[60ch] text-ink-soft">
         Para quando você comeu fora de casa ou não sabe a quantidade — num restaurante, delivery, viagem ou
         evento. Fotografe a refeição e tenha uma estimativa de calorias e macronutrientes.
