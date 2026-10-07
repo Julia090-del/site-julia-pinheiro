@@ -252,6 +252,10 @@ export default function AnaliseAlimentarPage() {
               onChange={handlePickPhoto}
               className="hidden"
             />
+            <p className="mt-3 text-xs text-ink-soft/70">
+              A foto é enviada a um serviço de inteligência artificial (Anthropic, fora do Brasil) só para
+              gerar essa estimativa — não é compartilhada com outras finalidades.
+            </p>
           </div>
 
           <div className="rounded-2xl border border-black/10 bg-white p-5">
