@@ -94,7 +94,18 @@ export default function GuideContent({ content }: { content: GuideContentType })
         <div key={ti}>
           <SectionTitle icon={table.icon || 'layers'}>{table.title}</SectionTitle>
           {table.intro && <p className="mb-4 max-w-[65ch] text-ink-soft">{table.intro}</p>}
-          <div className="overflow-x-auto rounded-2xl border border-black/10 bg-white">
+          <div
+            className="overflow-x-auto rounded-2xl border border-black/10 bg-white"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to left, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(28,34,29,0.14), rgba(255,255,255,0)), linear-gradient(to left, rgba(28,34,29,0.14), rgba(255,255,255,0))',
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: 'white',
+              backgroundSize: '24px 100%, 24px 100%, 10px 100%, 10px 100%',
+              backgroundPosition: '0 0, 100% 0, 0 0, 100% 0',
+              backgroundAttachment: 'local, local, scroll, scroll',
+            }}
+          >
             <table className="w-full min-w-[480px] border-collapse text-sm">
               <thead>
                 <tr className="bg-cream-soft">
