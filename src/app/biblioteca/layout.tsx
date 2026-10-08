@@ -1,7 +1,30 @@
+import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { signOut } from './actions';
 import { Icon } from '@/lib/biblioteca/icons';
+import RegisterServiceWorker from '@/components/biblioteca/RegisterServiceWorker';
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Área eStrat+',
+    template: '%s | Área eStrat+',
+  },
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Área eStrat+',
+  },
+  icons: {
+    icon: '/icons/icon-512.png',
+    apple: '/icons/apple-touch-icon.png',
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#faf6ee',
+};
 
 export default async function BibliotecaLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -21,6 +44,7 @@ export default async function BibliotecaLayout({ children }: { children: React.R
 
   return (
     <div className="min-h-screen bg-cream">
+      <RegisterServiceWorker />
       {user && (
         <header className="sticky top-0 z-40 border-b border-black/10 bg-cream/90 backdrop-blur">
           <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-4 py-3">

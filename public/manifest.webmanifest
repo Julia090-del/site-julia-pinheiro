@@ -1,0 +1,32 @@
+{
+  "name": "Área eStrat+",
+  "short_name": "eStrat+",
+  "description": "Guias práticos, ferramentas e acompanhamento nutricional da Júlia Pinheiro.",
+  "start_url": "/biblioteca",
+  "scope": "/biblioteca",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf6ee",
+  "theme_color": "#faf6ee",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
