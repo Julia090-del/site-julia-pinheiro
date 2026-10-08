@@ -2,6 +2,7 @@
 
 import { createClient } from '@/lib/supabase/server';
 import { analyzeMeal, recalculateSingleItem } from '@/lib/analise/anthropic';
+import { sendErrorAlert } from '@/lib/alert';
 import type { AnalysisResult, AnalyzedItem, ManualItemInput } from '@/lib/analise/types';
 
 type UsageKind = 'analysis_photo' | 'analysis_manual' | 'correction';
@@ -134,6 +135,7 @@ export async function analyzeMealAction(formData: FormData): Promise<
     return { ok: true, data };
   } catch (e) {
     console.error('analyzeMealAction error', e);
+    await sendErrorAlert('analyzeMealAction', e);
     return { ok: false, error: 'Não foi possível analisar a refeição agora. Tente novamente em instantes.' };
   }
 }
@@ -158,6 +160,7 @@ export async function recalculateItemAction(input: {
     return { ok: true, item };
   } catch (e) {
     console.error('recalculateItemAction error', e);
+    await sendErrorAlert('recalculateItemAction', e);
     return { ok: false, error: 'Não foi possível calcular esse item agora.' };
   }
 }
