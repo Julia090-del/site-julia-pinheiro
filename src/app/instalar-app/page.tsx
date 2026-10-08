@@ -114,7 +114,9 @@ export default function InstalarAppPage() {
                 <>Faça login com o e-mail e a senha que a Júlia te enviou.</>,
                 <>
                   Toque no ícone de <b className="text-green-deep">compartilhar</b> (quadrado com uma
-                  seta pra cima), na barra de baixo da tela.
+                  seta pra cima) — geralmente na barra de baixo da tela. Se não aparecer ali, toque
+                  nos <b className="text-green-deep">&quot;•••&quot;</b> (três pontinhos) perto da
+                  barra de endereço, que o compartilhar aparece dentro desse menu.
                 </>,
                 <>
                   Role a lista de opções para baixo e toque em{' '}
