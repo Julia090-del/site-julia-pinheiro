@@ -1,18 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Icon } from '@/lib/biblioteca/icons';
 
+const link = 'https://juliapinheironutri.com.br/biblioteca';
+
 export default function InstalarAppPage() {
-  const [origin, setOrigin] = useState('');
   const [platform, setPlatform] = useState<'ios' | 'android'>('ios');
   const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    setOrigin(window.location.origin);
-  }, []);
-
-  const link = `${origin}/biblioteca`;
 
   async function handleCopy() {
     try {
@@ -36,11 +31,8 @@ export default function InstalarAppPage() {
       </p>
 
       <div className="mb-10 flex items-center gap-2 rounded-2xl border border-black/10 bg-white p-3.5">
-        <a
-          href={link || '/biblioteca'}
-          className="min-w-0 flex-1 truncate text-sm font-semibold text-green-deep"
-        >
-          {link.replace(/^https?:\/\//, '') || 'biblioteca'}
+        <a href={link} className="min-w-0 flex-1 truncate text-sm font-semibold text-green-deep">
+          {link.replace(/^https?:\/\//, '')}
         </a>
         <button
           type="button"
