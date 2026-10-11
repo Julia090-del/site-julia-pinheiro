@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { Icon } from '@/lib/biblioteca/icons';
 import GuideContent from '@/components/biblioteca/GuideContent';
+import GuideCard from '@/components/biblioteca/GuideCard';
+import FavoriteToggleButton from '@/components/biblioteca/FavoriteToggleButton';
+import { recordGuideViewAction } from '@/app/biblioteca/actions';
 import type { GuideRow } from '@/lib/biblioteca/types';
 
 function formatDateShort(iso: string | null) {
@@ -15,11 +18,15 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const { slug } = await params;
   const supabase = await createClient();
 
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const { data: guide } = await supabase
     .from('guides')
     .select('*')
     .eq('slug', slug)
-    .single<GuideRow>();
+    .single<GuideRow & { id: string }>();
 
   if (!guide) notFound();
 
@@ -31,11 +38,25 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   const { data: related } = await supabase
     .from('guides')
-    .select('slug, title, subtitle, image, category_slug, read_minutes, is_new, is_featured')
+    .select('id, slug, title, subtitle, image, category_slug, read_minutes, is_new, is_featured')
     .eq('category_slug', guide.category_slug)
     .neq('slug', guide.slug)
     .order('sort_order', { ascending: true })
     .limit(6);
+
+  let isFavorite = false;
+  if (user) {
+    const [{ data: favorite }] = await Promise.all([
+      supabase
+        .from('favorites')
+        .select('guide_id')
+        .eq('patient_id', user.id)
+        .eq('guide_id', guide.id)
+        .maybeSingle(),
+      recordGuideViewAction(guide.id),
+    ]);
+    isFavorite = Boolean(favorite);
+  }
 
   const content = guide.content || {};
 
@@ -62,11 +83,14 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           <span>{guide.title}</span>
         </div>
 
-        <p className="mb-1 font-serif text-sm italic text-wine">
-          {category?.name}
-          {guide.is_new ? ' · Novo' : ''}
-        </p>
-        <h1 className="mb-2 font-serif text-2xl text-green sm:text-3xl">{guide.title}</h1>
+        <div className="mb-2 flex items-start justify-between gap-3">
+          <p className="font-serif text-sm italic text-wine">
+            {category?.name}
+            {guide.is_new ? ' · Novo' : ''}
+          </p>
+          <FavoriteToggleButton guideId={guide.id} initialFavorite={isFavorite} />
+        </div>
+        <h1 className="mb-2 font-serif text-2xl text-wine sm:text-3xl">{guide.title}</h1>
         {guide.subtitle && <p className="mb-6 max-w-[60ch] text-lg text-ink-soft">{guide.subtitle}</p>}
 
         {guide.image && (
@@ -105,27 +129,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       {related && related.length > 0 && (
         <section className="border-t border-black/5 bg-cream-soft py-10">
           <div className="mx-auto max-w-5xl px-4">
-            <h2 className="mb-5 font-serif text-2xl text-green">Você também pode gostar</h2>
+            <h2 className="mb-5 font-serif text-2xl text-wine">Você também pode gostar</h2>
             <div className="flex gap-4 overflow-x-auto pb-2">
               {related.map((g) => (
-                <Link
-                  key={g.slug}
-                  href={`/biblioteca/guia/${g.slug}`}
-                  className="w-[220px] flex-shrink-0 overflow-hidden rounded-2xl border border-black/10 bg-white transition hover:-translate-y-1 hover:shadow-md"
-                >
-                  <div className="aspect-[4/5] bg-green/10">
-                    {g.image && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={g.image} alt="" className="h-full w-full object-cover" />
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <p className="text-[10.5px] font-bold uppercase tracking-wide text-green-soft">
-                      {category?.name}
-                    </p>
-                    <h3 className="font-serif text-base text-ink">{g.title}</h3>
-                  </div>
-                </Link>
+                <div key={g.slug} className="w-[220px] flex-shrink-0">
+                  <GuideCard guide={g} categoryName={category?.name} />
+                </div>
               ))}
             </div>
           </div>

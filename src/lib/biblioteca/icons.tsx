@@ -37,6 +37,7 @@ const ICON_PATHS: Record<string, string> = {
   layers: '<polygon points="12 3.5 21 8 12 12.5 3 8"/><polyline points="3 13 12 17.5 21 13"/><polyline points="3 18 12 22.5 21 18"/>',
   package: '<path d="M4 7.5 12 3.5l8 4v9L12 20.5l-8-4Z"/><polyline points="4 7.5 12 11.5 20 7.5"/><line x1="12" y1="11.5" x2="12" y2="20.5"/>',
   camera: '<path d="M4 8.5a1 1 0 0 1 1-1h2.2l1-1.8a1 1 0 0 1 .9-.5h5.8a1 1 0 0 1 .9.5l1 1.8H19a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><circle cx="12" cy="13" r="3.6"/>',
+  smartphone: '<rect x="6" y="2.5" width="12" height="19" rx="2.3"/><line x1="10" y1="18.3" x2="14" y2="18.3"/>',
 };
 
 export function Icon({

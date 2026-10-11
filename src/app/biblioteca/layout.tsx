@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { signOut } from './actions';
 import { Icon } from '@/lib/biblioteca/icons';
 import RegisterServiceWorker from '@/components/biblioteca/RegisterServiceWorker';
+import BottomNav from '@/components/biblioteca/BottomNav';
 
 export const metadata: Metadata = {
   title: {
@@ -58,13 +59,13 @@ export default async function BibliotecaLayout({ children }: { children: React.R
               <Link
                 href="/biblioteca/analise-alimentar"
                 aria-label="Análise de Refeição"
-                className="flex items-center whitespace-nowrap hover:text-green"
+                className="flex items-center whitespace-nowrap hover:text-wine"
               >
                 <Icon name="camera" size={18} className="sm:hidden" />
                 <span className="hidden sm:inline">Análise de Refeição</span>
               </Link>
               {role === 'admin' && (
-                <Link href="/biblioteca/admin" className="whitespace-nowrap hover:text-green">
+                <Link href="/biblioteca/admin" className="whitespace-nowrap hover:text-wine">
                   Admin
                 </Link>
               )}
@@ -77,7 +78,8 @@ export default async function BibliotecaLayout({ children }: { children: React.R
           </div>
         </header>
       )}
-      {children}
+      <div className={user ? 'pb-20 sm:pb-0' : ''}>{children}</div>
+      {user && <BottomNav isAdmin={role === 'admin'} />}
     </div>
   );
 }

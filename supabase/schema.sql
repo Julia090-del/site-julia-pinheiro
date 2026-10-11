@@ -102,6 +102,18 @@ create policy "products_write_admin" on public.products for all using (public.is
 -- favoritos: cada paciente só mexe nos próprios
 create policy "favorites_owner" on public.favorites for all using (auth.uid() = patient_id) with check (auth.uid() = patient_id);
 
+-- histórico de guias vistos, pra "Continue de onde parou" — upsert por (paciente, guia), guarda só a última visita
+create table public.guide_views (
+  patient_id uuid not null references public.profiles(id) on delete cascade,
+  guide_id uuid not null references public.guides(id) on delete cascade,
+  viewed_at timestamptz not null default now(),
+  primary key (patient_id, guide_id)
+);
+alter table public.guide_views enable row level security;
+
+create policy "guide_views_owner" on public.guide_views
+  for all using (auth.uid() = patient_id) with check (auth.uid() = patient_id);
+
 -- uso da Análise de Refeição: um registro por análise/correção, usado para limitar X por semana
 -- kind: 'analysis_photo' (envio de foto), 'analysis_manual' (só gramas informadas), 'correction' (adicionar/corrigir item)
 create table public.meal_analysis_usage (

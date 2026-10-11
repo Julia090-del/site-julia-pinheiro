@@ -11,6 +11,46 @@ export async function signOut() {
   redirect('/biblioteca/login');
 }
 
+export async function toggleFavoriteAction(guideId: string, shouldFavorite: boolean) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { error: 'Não autenticado.' };
+
+  if (shouldFavorite) {
+    const { error } = await supabase
+      .from('favorites')
+      .upsert({ patient_id: user.id, guide_id: guideId }, { onConflict: 'patient_id,guide_id' });
+    if (error) return { error: error.message };
+  } else {
+    const { error } = await supabase
+      .from('favorites')
+      .delete()
+      .eq('patient_id', user.id)
+      .eq('guide_id', guideId);
+    if (error) return { error: error.message };
+  }
+
+  revalidatePath('/biblioteca');
+  return { ok: true };
+}
+
+export async function recordGuideViewAction(guideId: string) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return;
+
+  await supabase
+    .from('guide_views')
+    .upsert(
+      { patient_id: user.id, guide_id: guideId, viewed_at: new Date().toISOString() },
+      { onConflict: 'patient_id,guide_id' }
+    );
+}
+
 async function requireAdmin() {
   const supabase = await createClient();
   const {
